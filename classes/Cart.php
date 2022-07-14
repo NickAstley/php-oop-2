@@ -20,11 +20,13 @@ class Cart{
 
     // Funzione che restituisce il prezzo totale dei prodotti nel carrello
     public function getTotal() {
+        $utenteRegistrato = Customer->getIsRegistered();
+        
         $total = 0;
         foreach ($this->productsList as $product) {
             $total += $product->getPrice();
         }
-        return $total;
+        return $utenteRegistrato ? $total * 0.8 : $total;
     }
 }
 
