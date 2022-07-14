@@ -1,7 +1,23 @@
 <?php
 
 class Cart{
-    private $productsList = [];
+    private array $productsList;
+    private bool $isDiscountable;
+    
+    function __construct($_isDiscountable) {
+        $this->productsList = [];
+        $this->setIsDiscountable($_isDiscountable);
+    }
+
+    // $isDiscountable getter e setter
+    public function setIsDiscountable($_isDiscountable) {
+        $this->isDiscountable = $_isDiscountable;
+        return $this;
+    }
+
+    public function getIsDiscountable() {
+        return $this->isDiscountable;
+    }
 
     // Funzione che aggiunge un prodotto al carrello
     public function addItem(Product $product) {
@@ -20,13 +36,11 @@ class Cart{
 
     // Funzione che restituisce il prezzo totale dei prodotti nel carrello
     public function getTotal() {
-        $utenteRegistrato = Customer->getIsRegistered();
-        
         $total = 0;
         foreach ($this->productsList as $product) {
             $total += $product->getPrice();
         }
-        return $utenteRegistrato ? $total * 0.8 : $total;
+        return $this->isDiscountable ? $total * 0.8 : $total;
     }
 }
 

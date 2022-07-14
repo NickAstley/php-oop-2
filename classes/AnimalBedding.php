@@ -3,15 +3,15 @@
 require_once __DIR__ . "/AnimalProduct.php";
 
 class AnimalBedding extends AnimalProduct {
-    private $colour;
-    private $width;
-    private $length;
+    private string $colour;
+    private float $widthMeters;
+    private float $lengthMeters;
 
-    function __construct($_name,$_description, $_price, $_brand, $_rating, $_animalCategory, $_colour, $_width, $_length) {
+    function __construct($_name,$_description, $_price, $_brand, $_rating, $_animalCategory, $_colour, $_widthMeters, $_lengthMeters) {
         parent::__construct($_name, $_description, $_price, $_brand, $_rating, $_animalCategory);
         $this->setColour($_colour);
-        $this->setWidth($_width);
-        $this->setLength($_length);
+        $this->setWidthMeters($_widthMeters);
+        $this->setLengthMeters($_lengthMeters);
     }
 
     // $colour setter e getter
@@ -24,24 +24,24 @@ class AnimalBedding extends AnimalProduct {
         return $this->colour;
     }
 
-    // $width setter e getter
-    public function setWidth($_width) {
-        $this->width = $_width;
+    // $widthMeters setter e getter
+    public function setWidthMeters($_widthMeters) {
+        $this->widthMeters = $_widthMeters;
         return $this;
     }
 
-    public function getWidth() {
-        return $this->width;
+    public function getWidthMeters() {
+        return $this->widthMeters;
     }
 
-    // $length setter e getter
-    public function setLength($_length) {
-        $this->length = $_length;
+    // $lengthMeters setter e getter
+    public function setLengthMeters($_lengthMeters) {
+        $this->lengthMeters = $_lengthMeters;
         return $this;
     }
 
-    public function getLength() {
-        return $this->length;
+    public function getLengthMeters() {
+        return $this->lengthMeters;
     }
 }
 

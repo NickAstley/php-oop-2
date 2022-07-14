@@ -3,13 +3,13 @@
 require_once __DIR__ . "/AnimalProduct.php";
 
 class AnimalFood extends AnimalProduct {
-    private $ingredients;
-    private $weight;
+    private array $ingredients;
+    private float $weightKg;
 
-    function __construct($_name,$_description, $_price, $_brand, $_rating, $_animalCategory, $_ingredients, $_weight) {
+    function __construct($_name,$_description, $_price, $_brand, $_rating, $_animalCategory, $_ingredients, $_weightKg) {
         parent::__construct($_name, $_description, $_price, $_brand, $_rating, $_animalCategory);
         $this->setIngredients($_ingredients);
-        $this->setWeight($_weight);
+        $this->setWeightKg($_weightKg);
     }
 
     // $ingredients setter e getter
@@ -22,14 +22,14 @@ class AnimalFood extends AnimalProduct {
         return $this->ingredients;
     }
 
-    // $weight setter e getter
-    public function setWeight($_weight) {
-        $this->weight = $_weight;
+    // $weightKg setter e getter
+    public function setWeightKg($_weightKg) {
+        $this->weightKg = $_weightKg;
         return $this;
     }
 
-    public function getWeight() {
-        return $this->weight;
+    public function getWeightKg() {
+        return $this->weightKg;
     }
 }
 

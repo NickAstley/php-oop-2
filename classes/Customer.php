@@ -1,19 +1,22 @@
 <?php
 
 require_once __DIR__ . "/Cart.php";
+require_once __DIR__ . "/CreditCard.php";
 class Customer {
-    private $name;
-    private $surname;
-    private $shippingAddress;
-    private $isRegistered;
+    private string $name;
+    private string $surname;
+    private string $shippingAddress;
+    private bool $isRegistered;
     public Cart $cart;
+    public CreditCard $creditCard;
 
-    function __construct($_name, $_surname, $_shippingAddress, $_isRegistered) {
+    function __construct($_name, $_surname, $_shippingAddress, $_isRegistered, $_cardNumber, $_cardExpirationDate) {
         $this->setName($_name);
         $this->setSurname($_surname);
         $this->setShippingAddress($_shippingAddress);
         $this->setIsRegistered($_isRegistered);
-        $this->cart = new Cart();
+        $this->cart = new Cart($_isRegistered);
+        $this->creditCard = new CreditCard($_cardNumber, $_cardExpirationDate);
     }
     
     // $name getter e setter

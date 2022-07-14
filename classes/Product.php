@@ -1,11 +1,11 @@
 <?php
 
 class Product {
-    private $name;
-    private $description;
-    private $price;
-    private $brand;
-    private $rating;
+    private string $name;
+    private string $description;
+    private float $price;
+    private string $brand;
+    private float $rating;
 
     function __construct($_name,$_description, $_price, $_brand, $_rating) {
         $this->setName($_name);

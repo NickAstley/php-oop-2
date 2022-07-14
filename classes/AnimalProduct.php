@@ -3,7 +3,7 @@
 require_once __DIR__ . "/Product.php";
 
 class AnimalProduct extends Product {
-    private $animalCategory;
+    private string $animalCategory;
 
     function __construct($_name, $_description, $_price, $_brand, $_rating, $_animalCategory) {
         parent::__construct($_name, $_description, $_price, $_brand, $_rating);
