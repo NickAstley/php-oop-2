@@ -1,14 +1,17 @@
 <?php
 
+require_once __DIR__ . "/Cart.php";
 class Customer {
     private $name;
     private $surname;
     private $shippingAddress;
+    public Cart $cart;
 
     function __construct($_name, $_surname, $_shippingAddress) {
         $this->setName($_name);
         $this->setSurname($_surname);
         $this->setShippingAddress($_shippingAddress);
+        $this->cart = new Cart();
     }
     
     // $name getter e setter
