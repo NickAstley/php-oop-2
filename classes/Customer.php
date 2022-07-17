@@ -3,6 +3,8 @@
 require_once __DIR__ . "/../traits/Cart.php";
 require_once __DIR__ . "/CreditCard.php";
 class Customer {
+    use Cart;
+
     private string $name;
     private string $surname;
     private string $shippingAddress;
@@ -10,12 +12,12 @@ class Customer {
     public Cart $cart;
     public CreditCard $creditCard;
 
-    function __construct($_name, $_surname, $_shippingAddress, $_isRegistered, $_cardNumber, $_cardExpirationDate) {
+    function __construct($_name, $_surname, $_shippingAddress, $_isRegistered, $_cardType, $_cardNumber, $_cardExpirationDate) {
         $this->setName($_name);
         $this->setSurname($_surname);
         $this->setShippingAddress($_shippingAddress);
         $this->setIsRegistered($_isRegistered);
-        $this->creditCard = new CreditCard($_cardNumber, $_cardExpirationDate);
+        $this->creditCard = new CreditCard($_cardType, $_cardNumber, $_cardExpirationDate);
     }
     
     // $name getter e setter
