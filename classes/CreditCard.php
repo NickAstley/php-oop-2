@@ -1,12 +1,34 @@
 <?php
 
 class CreditCard {
+    private string $type;
     private int $number;
     private string $expirationDate;
+    private static $creditCardInstances = [];
+    public static $MASTERCARD = "Mastercard";
+    public static $VISA = "Visa";
+    public static $AMERICAN_EXPRESS= "American Express";
 
-    function __construct($_number, $_expirationDate) {
+    function __construct($_type, $_number, $_expirationDate) {
+        $this->setType($_type);
         $this->setNumber($_number);
         $this->setExpirationDate($_expirationDate);
+        CreditCard::$creditCardInstances[] = $this;
+    }
+
+    // $creditCardInstances getter
+    public static function getCreditCardInstances() {
+        return CreditCard::$creditCardInstances;
+    }
+
+    // $type getter e setter
+    public function setType($_type) {
+        $this->type = $_type;
+        return $this;
+    }
+
+    public function getType() {
+        return $this->type;
     }
 
     // $number getter e setter

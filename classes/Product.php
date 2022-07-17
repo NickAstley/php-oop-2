@@ -6,13 +6,20 @@ class Product {
     private float $price;
     private string $brand;
     private float $rating;
+    private static $productInstances = [];
 
-    function __construct($_name,$_description, $_price, $_brand, $_rating) {
+    function __construct($_name, $_description, $_price, $_brand, $_rating) {
         $this->setName($_name);
         $this->setDescription($_description);
         $this->setPrice($_price);
         $this->setBrand($_brand);
         $this->setRating($_rating);
+        Product::$productInstances[] = $this;
+    }
+
+    // $productInstances getter
+    public static function getProductInstances() {
+        return Product::$productInstances;
     }
 
     // $name setter e getter
