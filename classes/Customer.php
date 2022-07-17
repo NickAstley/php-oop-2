@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . "/Cart.php";
+require_once __DIR__ . "/../traits/Cart.php";
 require_once __DIR__ . "/CreditCard.php";
 class Customer {
     private string $name;
@@ -15,7 +15,6 @@ class Customer {
         $this->setSurname($_surname);
         $this->setShippingAddress($_shippingAddress);
         $this->setIsRegistered($_isRegistered);
-        $this->cart = new Cart($_isRegistered);
         $this->creditCard = new CreditCard($_cardNumber, $_cardExpirationDate);
     }
     
