@@ -12,6 +12,7 @@ class AnimalProduct extends Product {
 
     // $animalCategory setter e getter
     public function setAnimalCategory($_animalCategory) {
+        $this->isValidString($_animalCategory);
         $this->animalCategory = $_animalCategory;
         return $this;
     }

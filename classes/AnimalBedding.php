@@ -16,6 +16,7 @@ class AnimalBedding extends AnimalProduct {
 
     // $colour setter e getter
     public function setColour($_colour) {
+        $this->isValidString($_colour);
         $this->colour = $_colour;
         return $this;
     }
@@ -26,6 +27,7 @@ class AnimalBedding extends AnimalProduct {
 
     // $widthMeters setter e getter
     public function setWidthMeters($_widthMeters) {
+        $this->isValidNumber($_widthMeters);
         $this->widthMeters = $_widthMeters;
         return $this;
     }
@@ -36,6 +38,7 @@ class AnimalBedding extends AnimalProduct {
 
     // $lengthMeters setter e getter
     public function setLengthMeters($_lengthMeters) {
+        $this->isValidNumber($_lengthMeters);
         $this->lengthMeters = $_lengthMeters;
         return $this;
     }

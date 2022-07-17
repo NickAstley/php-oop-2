@@ -1,13 +1,18 @@
 <?php
 
+require_once __DIR__ . "/../traits/Validator.php";
 class CreditCard {
-    private string $type;
-    private int $number;
-    private string $expirationDate;
+    use Validator;
+
     private static $creditCardInstances = [];
+
     public static $MASTERCARD = "Mastercard";
     public static $VISA = "Visa";
     public static $AMERICAN_EXPRESS= "American Express";
+
+    private string $type;
+    private int $number;
+    private string $expirationDate;
 
     function __construct($_type, $_number, $_expirationDate) {
         $this->setType($_type);
@@ -23,6 +28,7 @@ class CreditCard {
 
     // $type getter e setter
     public function setType($_type) {
+        $this->isValidString($_type);
         $this->type = $_type;
         return $this;
     }
@@ -33,6 +39,7 @@ class CreditCard {
 
     // $number getter e setter
     public function setNumber($_number) {
+        $this->isValidNumber($_number);
         $this->number = $_number;
         return $this;
     }
@@ -43,6 +50,7 @@ class CreditCard {
 
     // $expirationDate getter e setter
     public function setExpirationDate($_expirationDate) {
+        $this->isValidString($_expirationDate);
         $this->expirationDate = $_expirationDate;
         return $this;
     }

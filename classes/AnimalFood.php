@@ -14,6 +14,7 @@ class AnimalFood extends AnimalProduct {
 
     // $ingredients setter e getter
     public function setIngredients($_ingredients) {
+        $this->isValidArray($_ingredients);
         $this->ingredients = $_ingredients;
         return $this;
     }
@@ -24,6 +25,7 @@ class AnimalFood extends AnimalProduct {
 
     // $weightKg setter e getter
     public function setWeightKg($_weightKg) {
+        $this->isValidNumber($_weightKg);
         $this->weightKg = $_weightKg;
         return $this;
     }

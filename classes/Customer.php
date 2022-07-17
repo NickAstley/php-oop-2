@@ -1,15 +1,15 @@
 <?php
 
 require_once __DIR__ . "/../traits/Cart.php";
+require_once __DIR__ . "/../traits/Validator.php";
 require_once __DIR__ . "/CreditCard.php";
 class Customer {
-    use Cart;
+    use Cart, Validator;
 
     private string $name;
     private string $surname;
     private string $shippingAddress;
     private bool $isRegistered;
-    public Cart $cart;
     public CreditCard $creditCard;
 
     function __construct($_name, $_surname, $_shippingAddress, $_isRegistered, $_cardType, $_cardNumber, $_cardExpirationDate) {
@@ -22,6 +22,7 @@ class Customer {
     
     // $name getter e setter
     public function setName($_name) {
+        $this->isValidString($_name);
         $this->name = $_name;
         return $this;
     }
@@ -32,6 +33,7 @@ class Customer {
 
     // $surname getter e setter
     public function setSurname($_surname) {
+        $this->isValidString($_surname);
         $this->surname = $_surname;
         return $this;
     }
@@ -42,6 +44,7 @@ class Customer {
 
     // $shippingAddress getter e setter
     public function setShippingAddress($_shippingAddress) {
+        $this->isValidString($_shippingAddress);
         $this->shippingAddress = $_shippingAddress;
         return $this;
     }
@@ -52,6 +55,7 @@ class Customer {
 
     // $isRegistered getter e setter
     public function setIsRegistered($_isRegistered) {
+        $this->isValidBool($_isRegistered);
         $this->isRegistered = $_isRegistered;
         return $this;
     }
